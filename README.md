@@ -21,3 +21,4 @@ Shortcuts work with both the number row and the numpad. Hotkeys are ignored whil
 - Bookmarks are stored per session. Saving a new slot overwrites the previous value immediately.
 - Camera coordinates are clamped to the current map limits when saving or recalling to prevent jumping outside the playable area.
 - Vanilla "Next/Previous unit" hotkeys (], [, 1-3) are ignored whenever Ctrl or Alt is held so they don't fire while using the bookmark modifiers.
+- Slots automatically clear every time a new scenario/map loads so positions from one game never leak into the next.

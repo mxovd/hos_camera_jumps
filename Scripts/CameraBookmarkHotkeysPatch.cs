@@ -138,7 +138,42 @@ internal static class CameraBookmarkHotkeysPatch
         };
 
         _cycleIndex = slot;
+
+        PlaySaveSound();
     }
+
+    private static void PlaySaveSound()
+    {
+        if (SoundManager.instance == null || SoundManager.instance.UI_Source == null)
+        {
+            return;
+        }
+
+        AudioClip clip = SoundManager.GetAttackSound("savebookmark");
+        if (clip == null)
+        {
+            return;
+        }
+
+        SoundManager.instance.UI_Source.PlayOneShot(clip);
+    }
+
+    private static void PlayLoadSound()
+    {
+        if (SoundManager.instance == null || SoundManager.instance.UI_Source == null)
+        {
+            return;
+        }
+
+        AudioClip clip = SoundManager.GetAttackSound("loadbookmark");
+        if (clip == null)
+        {
+            return;
+        }
+
+        SoundManager.instance.UI_Source.PlayOneShot(clip);
+    }
+
 
     private static void JumpToBookmark(int slot, CameraGO cameraGO)
     {
@@ -149,6 +184,7 @@ internal static class CameraBookmarkHotkeysPatch
 
         ApplyBookmark(Slots[slot], cameraGO);
         _cycleIndex = slot;
+        PlayLoadSound();
     }
 
     private static void ApplyBookmark(CameraBookmark bookmark, CameraGO cameraGO)
@@ -270,5 +306,15 @@ internal static class CameraBookmarkHotkeysPatch
         }
 
         return selected.GetComponent<InputField>() != null || selected.GetComponent<TMP_InputField>() != null;
+    }
+
+    public static void ResetBookmarks()
+    {
+        for (int i = 0; i < SlotCount; i++)
+        {
+            Slots[i] = default;
+        }
+
+        _cycleIndex = -1;
     }
 }
