@@ -13,8 +13,8 @@ Shortcuts work with both the number row and the numpad. Hotkeys are ignored whil
 ## Building
 
 1. Install the .NET SDK 8.0 (or newer) and make sure `dotnet` is on your PATH.
-2. Run `dotnet build CameraJumps.csproj`. The compiled `CameraJumps.dll` will be placed in `output/net48`.
-3. Copy the DLL and `Manifest.json` into your Hex of Steel mods folder.
+2. Run `python hos_mod_utils.py --deploy` to build and package the mod (add `-r` if you need to refresh the `Libraries` folder from a local Hex of Steel install).
+3. Use the switch --install or -i along the deploy argument to directly install the folder in your Hex of Steel mods folder. Otherwise, manually copy the package.
 
 ## Notes
 
