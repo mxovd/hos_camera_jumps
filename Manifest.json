@@ -4,5 +4,5 @@
     "modAuthor": "mxovd",
     "supportedGameVersion": "8.0.7+",
     "dependencies": "HarmonyCore",
-    "modDescription": "Mod to jump between locations using hotkeys"
+    "modDescription": "Mod to jump between locations using CTRL+0-9 to save and ALT+0-9 to recall camera positions."
 }
